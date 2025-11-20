@@ -20,7 +20,7 @@
             hasCard: false,
             cardTitle: "La verdad y punto.",
             cardDescription:
-                "En los Santanderes vamos a descubrir qué es mito y qué es verdad: \n¿Será que la comida rápida de aquí es la mejor del mundo? \n¿La tarántara y la piña van juntas o separadas? \n¿Y todo sabe mejor con una Hipinto?",
+                "En los Santanderes vamos a descubrir qué es mito y qué es verdad: \n ¿Será que la comida rápida de aquí es la mejor del mundo? \n ¿La tarántara y la piña van juntas o separadas? \n ¿Y todo sabe mejor con una Hipinto?",
             buttonText: "Ver más",
             redirectTo: "https://www.youtube.com/",
         },

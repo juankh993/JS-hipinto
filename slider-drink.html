@@ -1,0 +1,652 @@
+<!--- MOBILE --->
+<style>
+    .products-slider {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1720px;
+        position: relative;
+        z-index: 10;
+        padding-left: 80px;
+    }
+
+    .products-slider__first-slider {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 15%;
+    }
+
+    .products-slider__container {
+        width: 80%;
+    }
+
+    .products-slider__swiper,
+    .products-slider-mobile__swiper {
+        height: 650px;
+
+    }
+
+    .products-slider__swiper .swiper-wrapper,
+    .products-slider-mobile__swiper .swiper-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .products-slider .products-slider__first-slider-container .products-slider__title {
+        font-family: Anton, Arial, sans-serif;
+        font-size: 36px;
+        line-height: 48px;
+        font-weight: 400;
+        color: #7C140F;
+        margin: 0;
+    }
+
+    .products-slider .products-slider__first-slider-container .products-slider__presentacion-size {
+        font-family: Anton, Arial, sans-serif;
+        font-weight: 400;
+        color: #7C140F;
+        font-size: 60px;
+        line-height: 88px;
+    }
+
+    .products-slider__presentacion-retornable {
+        font-family: Anton, Arial, sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 400;
+        color: #7C140F;
+        margin: 0px 0px 12px 0px;
+    }
+
+
+    .products-slider .products-slider__first-slider-container .products-slider__sabores {
+        display: flex;
+        gap: 8px;
+    }
+
+    .products-slider .products-slider__first-slider-container .products-slider__sabor {
+        font-family: "Alfaslabone", sans-serif;
+        padding: 8px;
+        size: 18px;
+        line-height: 24px;
+        font-weight: 400;
+        text-transform: uppercase;
+        border-radius: 10px;
+    }
+
+    .products-slider .products-slider__first-slider-container .products-slider__sabor.flavor-kola {
+        background-color: #D90C11;
+        color: #FED925;
+    }
+
+    .products-slider .products-slider__first-slider-container .products-slider__sabor.flavor-pina {
+        background-color: #FED925;
+        color: #D90C11;
+    }
+
+    .products-slider__tabla {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+    a.products-slider__tabla-link {
+        text-decoration: none;
+        font-family: Avenir, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #7C140F;
+    }
+
+    .product-slider__swiper-elements {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        font-family: Avenir, sans-serif;
+    }
+
+    .products-slider__pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
+        font-family: Anton, Arial, sans-serif;
+        font-size: 37px;
+        line-height: 49px;
+        color: #7C140F;
+        font-weight: 400;
+    }
+
+    .products-slider__navigation {
+        display: flex;
+        gap: 22px;
+    }
+
+    .products-slider__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        border: 2px solid #7C140F;
+        transition: all 0.3s ease;
+    }
+
+    .products-slider__image-container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .products-slider__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Asegurar que las imágenes en mobile se muestren correctamente */
+    .products-slider-mobile__swiper .products-slider__image-container {
+        height: 100%;
+        width: 100%;
+    }
+
+    .products-slider-mobile__swiper .products-slider__image {
+        display: block;
+        opacity: 1;
+    }
+
+    .products-slider-mobile__swiper .products-slider__slide {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media screen and (max-width : 768px) {
+        .products-slider {
+            display: flex;
+            flex-direction: column-reverse;
+            padding: 0 16px;
+        }
+
+        .products-slider__first-slider {
+            width: 50%;
+            align-self: flex-start;
+            justify-self: flex-start;
+            position: relative;
+            z-index: 15;
+        }
+
+        .products-slider__container {
+            width: 100%;
+        }
+
+        .products-slider__swiper,
+        .products-slider-mobile__swiper {
+            height: 500px;
+        }
+
+        .products-slider__first-slider {
+            margin-top: -175px;
+        }
+    }
+
+
+    @media screen and (max-width : 480px) {
+
+        .products-slider .products-slider__first-slider-container .products-slider__title {
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+        .products-slider .products-slider__first-slider-container .products-slider__presentacion-size {
+            font-size: 40px;
+            line-height: 58px;
+        }
+
+        .products-slider__pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
+            font-size: 34px;
+            line-height: 44px;
+        }
+
+    }
+</style>
+
+<section class="products-slider products-slider--mobile" role="region" aria-labelledby="products-slider-title">
+    <div class="products-slider__first-slider">
+        <div class="products-slider__first-slider-container">
+            <h4 class="products-slider__title" id="products-slider-title">Presentación</h4>
+            <swiper-container init="false" class="products-slider-mobile__info-swiper" role="tabpanel"
+                aria-live="polite" aria-label="Información del producto seleccionado">
+            </swiper-container>
+        </div>
+        <div class="product-slider__swiper-elements">
+            <div class="products-slider__pagination"></div>
+            <div class="products-slider__navigation">
+                <div class="products-slider__button products-slider__button--prev" aria-label="Producto anterior"
+                    type="button">
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M8.7266 1.52457L1.89543 7.99994L8.7266 14.4753M2.84421 7.99994H16.6963"
+                            stroke="#7C140F" stroke-width="1.85011" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="products-slider__button products-slider__button--next" aria-label="Producto siguiente"
+                    type="button">
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M9.06832 1.52457L15.8995 7.99994L9.06832 14.4753M14.9507 7.99994H1.09863"
+                            stroke="#7C140F" stroke-width="1.85011" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="products-slider__container">
+        <swiper-container init="false" class="products-slider-mobile__swiper" role="tablist"
+            aria-label="Galería de productos disponibles">
+        </swiper-container>
+    </div>
+</section>
+
+
+<script>
+    const productsData = [
+        {
+            id: 1,
+            mainImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a4a9aee067ad2a8f212f7b_Frame%205910.png",
+            previewImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a5fbfaf1b99f0ca6bdabc2_kola-pin%CC%83a.png",
+            mobileImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68ab49b9e6a3075a7b940c78_frist-img.png",
+            presentacion: "2.5 L",
+            isRetornable: true,
+            tabla_link: "https://infonutricional.tomatelavida.com.co/",
+            sabores: ["KOLA", "PIÑA"],
+
+        },
+        {
+            id: 2,
+            mainImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a4a9ae677cf765712f93ef_Frame%205911.png",
+            previewImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a5fbfaf1b99f0ca6bdabc2_kola-pin%CC%83a.png",
+            mobileImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68ab49b990c4c0da5129e91f_second-image.png",
+            presentacion: "1.5 L",
+            isRetornable: false,
+            tabla_link: "https://infonutricional.tomatelavida.com.co/",
+            sabores: ["KOLA", "PIÑA"],
+        },
+        {
+            id: 3,
+            mainImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a4a9ad1de8705f4e08deb0_Frame%205912.png",
+            previewImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a5fbf9013660be4e615dd9_kola.png",
+            mobileImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68ab49b891a3501570e98af3_third-image.png",
+            presentacion: "500 ml",
+            isRetornable: false,
+            tabla_link: "https://infonutricional.tomatelavida.com.co/",
+            sabores: ["KOLA"],
+        },
+        {
+            id: 4,
+            mainImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a4a9aee067ad2a8f212f7b_Frame%205910.png",
+            previewImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a5fbfaf1b99f0ca6bdabc2_kola-pin%CC%83a.png",
+            mobileImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68ab49b9e6a3075a7b940c78_frist-img.png",
+            presentacion: "1.5 L",
+            isRetornable: false,
+            tabla_link: "https://infonutricional.tomatelavida.com.co/",
+            sabores: ["PIÑA"],
+        },
+        {
+            id: 5,
+            mainImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a4a9ae677cf765712f93ef_Frame%205911.png",
+            previewImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68a5fbfaf1b99f0ca6bdabc2_kola-pin%CC%83a.png",
+            mobileImage:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/68ab49b990c4c0da5129e91f_second-image.png",
+            presentacion: "3.5 L",
+            isRetornable: true,
+            tabla_link: "https://infonutricional.tomatelavida.com.co/",
+            sabores: ["KOLA"],
+        },
+    ];
+
+    //  Mobile
+    function createInfoSlide(product, index) {
+        const saboresHTML = product.sabores
+            .map(function (sabor) {
+                const flavorClass = "flavor-" + sabor.toLowerCase().replace(/ñ/g, "n");
+                return (
+                    '<div class="products-slider__sabor ' +
+                    flavorClass +
+                    '" data-flavor="' +
+                    sabor +
+                    '">' +
+                    sabor +
+                    "</div>"
+                );
+            })
+            .join("");
+
+        return `
+                <swiper-slide class="products-slider__info-slide">
+                    <div class="products-slider__info-content">
+                        <div class="products-slider__presentacion">
+                            <span class="products-slider__presentacion-size">${product.presentacion}</span>
+                            
+                        </div>
+
+                        ${product.isRetornable ? '<p class="products-slider__presentacion-retornable">Retornable</p>' : '<p class="products-slider__presentacion-retornable">No Retornable</p>'}
+                        
+                        <div class="products-slider__sabores">
+                            ${saboresHTML}
+                        </div>
+                        
+                        <div class="products-slider__tabla">
+                            <a href="${product.tabla_link}" 
+                            class="products-slider__tabla-link" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Ver tabla nutricional de ${product.presentacion}">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M7.99967 14.6666C11.6816 14.6666 14.6663 11.6819 14.6663 7.99998C14.6663 4.31808 11.6816 1.33331 7.99967 1.33331C4.31778 1.33331 1.33301 4.31808 1.33301 7.99998C1.33301 11.6819 4.31778 14.6666 7.99967 14.6666Z" stroke="#7C140F"/>
+    <path d="M8 4.66675V8.66675" stroke="#7C140F" stroke-linecap="round"/>
+    <path d="M7.99967 11.3334C8.36786 11.3334 8.66634 11.0349 8.66634 10.6667C8.66634 10.2985 8.36786 10.0001 7.99967 10.0001C7.63148 10.0001 7.33301 10.2985 7.33301 10.6667C7.33301 11.0349 7.63148 11.3334 7.99967 11.3334Z" fill="#7C140F"/>
+    </svg>
+    Tabla nutricional
+                            </a>
+                        </div>
+                    </div>
+                </swiper-slide>
+            `;
+    }
+
+    function createImageSlide(product, index) {
+        return `
+            <swiper-slide class="products-slider__slide" role="tab" aria-selected="false">
+                    <div class="products-slider__image-container">
+                        <img 
+                            class="products-slider__image products-slider__image--main" 
+                            src="${product.mobileImage}" 
+                            alt="Botella destacada de ${product.sabores.join(
+            " y "
+        )} de ${product.presentacion}"
+                        >
+                    </div>
+            </swiper-slide>
+        `;
+    }
+
+    function initMobileProductsSlider() {
+        const infoSwiperContainer = document.querySelector(
+            ".products-slider-mobile__info-swiper"
+        );
+        const imageSwiperContainer = document.querySelector(
+            ".products-slider-mobile__swiper"
+        );
+
+        if (!infoSwiperContainer || !imageSwiperContainer) {
+            console.error("Mobile slider containers not found!");
+            return;
+        }
+
+        let infoSwiper = null;
+        let imageSwiper = null;
+
+        const infoSwiperParams = {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            allowTouchMove: false,
+            loop: true,
+            fadeEffect: {
+                crossFade: true,
+            },
+        };
+
+        const imageSwiperParams = {
+            slidesPerView: 1,
+            loop: true,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true,
+            },
+            pagination: {
+                el: ".products-slider--mobile .products-slider__pagination",
+                type: "fraction",
+            },
+            navigation: {
+                nextEl: ".products-slider--mobile .products-slider__button--next",
+                prevEl: ".products-slider--mobile .products-slider__button--prev",
+            },
+            on: {
+                slideChange: function () {
+                    if (infoSwiper) {
+                        infoSwiper.slideToLoop(this.realIndex);
+                    }
+                },
+            },
+        };
+
+        const infoSlidesHTML = productsData
+            .map((product, index) => createInfoSlide(product, index))
+            .join("");
+        const imageSlidesHTML = productsData
+            .map((product, index) => createImageSlide(product, index))
+            .join("");
+
+        infoSwiperContainer.innerHTML = infoSlidesHTML;
+        imageSwiperContainer.innerHTML = imageSlidesHTML;
+
+        console.log("Mobile info swiper content:", infoSwiperContainer.innerHTML);
+        console.log("Mobile image swiper content:", imageSwiperContainer.innerHTML);
+
+        Object.assign(infoSwiperContainer, infoSwiperParams);
+        Object.assign(imageSwiperContainer, imageSwiperParams);
+
+        infoSwiperContainer.initialize();
+        imageSwiperContainer.initialize();
+
+        setTimeout(() => {
+            infoSwiper = infoSwiperContainer.swiper;
+            imageSwiper = imageSwiperContainer.swiper;
+
+            if (imageSwiper) {
+                imageSwiper.update();
+                imageSwiper.updateSlides();
+            }
+        }, 100);
+    }
+
+    // Desktop
+    function generateSlideInfo(product, index) {
+        const saboresHTML = product.sabores
+            .map(function (sabor) {
+                const flavorClass = "flavor-" + sabor.toLowerCase().replace(/ñ/g, "n");
+                return (
+                    '<div class="products-slider__sabor ' +
+                    flavorClass +
+                    '" data-flavor="' +
+                    sabor +
+                    '">' +
+                    sabor +
+                    "</div>"
+                );
+            })
+            .join("");
+
+        const slideInfo = /*html*/ `
+              <div class="products-slider__info-content">
+              <div class="products-slider__presentacion">
+                  <span class="products-slider__presentacion-size">${product.presentacion}</span>
+                  ${product.isRetornable ? '<p class="products-slider__presentacion-retornable">Retornable</p>' : '<p class="products-slider__presentacion-retornable">No Retornable</p>'}
+  </div>
+              <div class="products-slider__sabores">
+              ${saboresHTML}
+  </div>
+              <div class="products-slider__tabla">
+                  <a href="${product.tabla_link}"
+                      class="products-slider__tabla-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Ver tabla nutricional de ${product.presentacion} (se abre en nueva ventana)">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <path d="M7.99967 14.6666C11.6816 14.6666 14.6663 11.6819 14.6663 7.99998C14.6663 4.31808 11.6816 1.33331 7.99967 1.33331C4.31778 1.33331 1.33301 4.31808 1.33301 7.99998C1.33301 11.6819 4.31778 14.6666 7.99967 14.6666Z" stroke="#7C140F"/>
+                          <path d="M8 4.66675V8.66675" stroke="#7C140F" stroke-linecap="round"/>
+                          <path d="M7.99967 11.3334C8.36786 11.3334 8.66634 11.0349 8.66634 10.6667C8.66634 10.2985 8.36786 10.0001 7.99967 10.0001C7.63148 10.0001 7.33301 10.2985 7.33301 10.6667C7.33301 11.0349 7.63148 11.3334 7.99967 11.3334Z" fill="#7C140F"/>
+  </svg>
+                      Tabla nutricional
+  </a>
+  </div>
+  </div>
+          `;
+
+        return slideInfo;
+    }
+
+    function initInfoSwiper() {
+        const infoSwiperContainer = document.querySelector(
+            ".products-slider--desktop .products-slider__info-swiper"
+        );
+
+        if (!infoSwiperContainer) return;
+
+        const infoSwiperParams = {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            allowTouchMove: false,
+            virtual: {
+                slides: (() => {
+                    const slides = [];
+                    productsData.forEach((product, index) => {
+                        slides.push(generateSlideInfo(product, index));
+                    });
+
+                    return slides;
+                })(),
+            },
+            pagination: {
+                el: ".products-slider--desktop .products-slider__pagination",
+                type: "fraction",
+            },
+            navigation: {
+                nextEl: ".products-slider--desktop .products-slider__button--next",
+                prevEl: ".products-slider--desktop .products-slider__button--prev",
+            },
+        };
+
+        Object.assign(infoSwiperContainer, infoSwiperParams);
+        infoSwiperContainer.initialize();
+
+        return infoSwiperContainer;
+    }
+
+    function generateSlideImage(product, index) {
+        return /*html*/ `
+            <div class="slider-slide">
+                  <div class="slide-content">
+
+                <div class="products-slider__image-container">
+                  <img
+                      class="products-slider__image products-slider__image--preview"
+                      src="${product.previewImage}"
+                      alt="Botella de ${product.sabores.join(" y ")} de ${product.presentacion
+            }"
+                  >
+                  <img
+                      class="products-slider__image products-slider__image--main"
+                      src="${product.mainImage}"
+                      alt="Botella destacada de ${product.sabores.join(
+                "y"
+            )} de ${product.presentacion}"
+                  >
+  </div>
+  </div>
+  </div>
+              `;
+    }
+
+    function initImageSwiper(infoSwiper) {
+        const sliderContainer = document.querySelector(
+            "#products-slider .slider-wrapper"
+        );
+        if (!sliderContainer) return;
+
+        const slides = productsData
+            .map((product, index) => {
+                return generateSlideImage(product, index);
+            })
+            .join("");
+
+        sliderContainer.innerHTML = slides;
+
+        const slider = new InteractiveSlider("#products-slider", {
+            loop: true,
+            autoplay: false,
+            speed: 0.8,
+            slidesPerView: 3,
+            slideActiveWidth: "50%",
+            gap: 25,
+            leftOffset: 50,
+            dragThreshold: 60,
+            enableDrag: true,
+            enableKeyboard: true,
+            enableIndicators: false,
+            enableControls: false,
+            breakpoints: {
+                760: { slidesPerView: 3, slideActiveWidth: "50%", gap: 35 },
+                1024: { slidesPerView: 4, slideActiveWidth: "40%", gap: 24 },
+            },
+        });
+
+        return slider;
+    }
+
+    function initSliders() {
+        const infoSwiper = initInfoSwiper();
+        const imageSwiper = initImageSwiper(infoSwiper);
+        const btnNext = document.querySelector(".products-slider__button--next");
+        const btnPrev = document.querySelector(".products-slider__button--prev");
+
+        imageSwiper.container.addEventListener("slideChange", (event) => {
+            console.log("event", event);
+            infoSwiper.swiper.slideTo(event.detail.currentIndex);
+        });
+
+        btnNext.addEventListener("click", () => {
+            imageSwiper.next();
+        });
+
+        btnPrev.addEventListener("click", () => {
+            imageSwiper.prev();
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if (window.innerWidth < 1024) {
+            initMobileProductsSlider();
+        } else {
+            initSliders();
+        }
+    });
+</script>
