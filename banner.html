@@ -1,0 +1,337 @@
+<style>
+    .main-banner-controls--navigation .swiper-button-prev,
+    .main-banner-controls--navigation .swiper-button-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        display: flex;
+        background-color: #7c140f;
+        color: #fefdef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        z-index: 10000000000;
+        transition: all 0.3s ease;
+
+        &.swiper-button-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        &:hover {
+            background-color: #ffd700;
+            color: #7c140f;
+        }
+    }
+
+    .main-banner-controls--navigation .swiper-button-prev {
+        left: 39px;
+    }
+
+    .main-banner-controls--navigation .swiper-button-next {
+        right: 39px;
+    }
+
+    .slideBannerCard-content {
+        position: absolute;
+        z-index: 10000000000;
+        bottom: 20%;
+        left: 10%;
+        display: flex;
+        flex-direction: column;
+        width: 483px;
+        border-radius: 30px;
+        background-color: #fefdef;
+        padding: 40px;
+    }
+
+    .main-banner-section,
+    .swiper-main-home,
+    swiper-slide,
+    .slideBanner-slide,
+    .slideBannerCard,
+    .slideBannerCard-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .main-banner-controls--pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+    position: absolute;
+    z-index: 3;
+    width: 110px;
+    height: 10px;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    }
+
+    span.swiper-pagination-bullet {
+        display: block;
+        background: #FEFDEF;
+        width: 8px;
+        height: 8px;
+        border-radius: 40px;
+        transition: all 0.3s ease;
+        opacity: 0.45;
+    }
+
+    span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+        width: 30px;
+        opacity: 1;
+    }
+
+
+
+    .slideBannerCard-content {
+        transform: rotate(3deg);
+
+        h3,
+        p {
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 48px;
+            color: #7c140f;
+            margin-bottom: 8px;
+            font-family: "Alfaslabone", sans-serif;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 20px;
+            color: #132024;
+            font-family: "Avenir", sans-serif;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .slideBannerCard-button.primary-button {
+            margin: 0;
+            width: auto;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .slideBannerCard-info,
+        .slideBannerCard-actions {
+            transform: rotate(-3deg);
+        }
+    }
+
+    @media screen and (max-width : 480px) {
+        .main-banner-controls--navigation .swiper-button-prev {
+        left: 20px;
+    }
+
+    .main-banner-controls--navigation .swiper-button-next {
+        right: 20px;
+    }
+
+    .main-banner-controls--pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+        left: auto;
+        right: 20px;
+        transform: translateX(0);
+    }
+
+
+    span.swiper-pagination-bullet {
+        background: #7c140f;
+    }
+
+
+        .slideBannerCard-content {
+            left: 50%;
+            transform: translateX(-50%) rotate(3deg);
+            bottom: 10%;
+            padding: 26px;
+            max-width: 95%;
+
+            h3 {
+                font-size: 24px;
+                line-height: 32px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+</style>
+
+<div class="main-banner-section" id="main-banner-section">
+    <swiper-container init="false" class="swiper-main-home"> </swiper-container>
+
+    <div class="main-banner-controls">
+        <div class="main-banner-controls--pagination"></div>
+        <div class="main-banner-controls--navigation">
+            <button class="swiper-button-prev">
+                <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.38462 15L1 8L8.38462 0.999999M2.02564 8L17 8" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <button class="swiper-button-next">
+                <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.61538 1L17 8L9.61538 15M15.9744 8H1" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const slideInfo = [
+        {
+            imageDesktop:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/688f52518acde0a5bcacfb49_slide-1.png",
+            imageMobile:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/688d3df7f5e44c61ac179169_Screenshot%202025-08-01%20at%209.30.58%E2%80%AFAM.png",
+            hasCard: true,
+            cardTitle: "Nombre campaña",
+            cardDescription:
+                "Lorem ipsum dolor sit amet consectetur. Faucibus interdum aliquet ultrices enim volutpat et. Lorem ipsum dolor sit amet consectetur.",
+            buttonText: "Ver más",
+            redirectTo: "https://www.youtube.com/",
+        },
+        {
+            imageDesktop:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/688f5260245ce01af107d62d_slide-2.png",
+            imageMobile:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/688d3df7f5e44c61ac179169_Screenshot%202025-08-01%20at%209.30.58%E2%80%AFAM.png",
+            hasCard: false,
+            cardTitle: "Nombre capaña 2",
+            cardDescription:
+                "Lorem ipsum dolor sit amet consectetur. Faucibus interdum aliquet ultrices enim volutpat et. Lorem ipsum dolor sit amet consectetur.",
+            buttonText: "Ver más",
+            redirectTo: "https://www.youtube.com/",
+        },
+        {
+            imageDesktop:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/688f5257f4dab71810807341_slide%20-3%20.png",
+            imageMobile:
+                "https://cdn.prod.website-files.com/66cca8ed4839f9bf6afd6d0d/688d3df7f5e44c61ac179169_Screenshot%202025-08-01%20at%209.30.58%E2%80%AFAM.png",
+            hasCard: true,
+            cardTitle: "Nombre campaña 3",
+            cardDescription:
+                "Lorem ipsum dolor sit amet consectetur. Faucibus interdum aliquet ultrices enim volutpat et. Lorem ipsum dolor sit amet consectetur.",
+            buttonText: "Ver más",
+            redirectTo: "https://www.youtube.com/",
+        },
+    ];
+
+    const templateSlide = (campaign, index) => {
+        const slide = /*html*/ `
+    <article class="slideBanner-slide" data-slide-index="${index}">
+      <div class="slideBannerCard">
+        <picture class="slideBannerCard-image">
+          <source media="(max-width: 768px)" srcset="${campaign.imageMobile}">
+          <img
+            class="image-cover"
+            src="${campaign.imageDesktop}"
+            alt="imagen de la campaña ${campaign.cardTitle}"
+            loading="lazy"
+          />
+        </picture>
+        
+        ${campaign.hasCard
+                ? `
+          <div class="slideBannerCard-content">
+            <div class="slideBannerCard-info">
+              <h3 class="slideBannerCard-title">${campaign.cardTitle}</h3>
+              <p class="slideBannerCard-description">${campaign.cardDescription
+                }</p>
+            </div>
+            
+            ${campaign.buttonText && campaign.redirectTo
+                    ? `
+              <div class="slideBannerCard-actions">
+                <a 
+                  href="${campaign.redirectTo}" 
+                  class="slideBannerCard-button primary-button" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                >
+                  ${campaign.buttonText}
+                </a>
+              </div>
+            `
+                    : ""
+                }
+          </div>
+        `
+                : ""
+            }
+      </div>
+    </article>
+  `;
+
+        return slide;
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const swiperslideBanners = document.querySelector(
+            "#main-banner-section .swiper-main-home"
+        );
+
+        const swiperParams = {
+            fadeEffect: { crossFade: true },
+            virtualTranslate: true,
+            slidersPerView: 1,
+            effect: "fade",
+            centeredSlides: true,
+            pagination: {
+                el: "#main-banner-section .main-banner-controls--pagination",
+            },
+            navigation: {
+                nextEl: "#main-banner-section .swiper-button-next",
+                prevEl: "#main-banner-section .swiper-button-prev",
+            },
+            virtual: {
+                slides: (() => {
+                    let slides = [];
+                    slideInfo.forEach((campaign, index) => {
+                        slides.push(templateSlide(campaign, index));
+                    });
+                    return slides;
+                })(),
+            },
+            on: {
+                init: function () {
+                    checkControlsVisibility(this);
+                },
+                resize: function () {
+                    checkControlsVisibility(this);
+                },
+            },
+        };
+
+        Object.assign(swiperslideBanners, swiperParams);
+        swiperslideBanners.initialize();
+
+        function checkControlsVisibility(swiperInstance) {
+            const totalSlides = swiperInstance.virtual.slides.length;
+            const windowWidth = window.innerWidth;
+            const controlsContainer = document.querySelector(
+                "#main-banner-section .main-banner-controls"
+            );
+
+            if (windowWidth <= 768) {
+                controlsContainer.style.display = "flex";
+            }
+        }
+    });
+</script>
